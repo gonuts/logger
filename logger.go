@@ -47,6 +47,10 @@ func (msg *Logger) Level() Level {
 	return msg.lvl
 }
 
+func (msg *Logger) SetLevel(lvl Level) {
+	msg.lvl = lvl
+}
+
 func (msg *Logger) Errorf(format string, args ...interface{}) (int, error) {
 	if msg.lvl <= ERROR {
 		return fmt.Fprintf(msg.w, msg.name+" ERROR    "+format, args...)
